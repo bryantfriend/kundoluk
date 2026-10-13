@@ -1,0 +1,1 @@
+PASS: 18 illustrated steps; group and step navigation; keyboard Next/Back; pause; reduced motion; 390px mobile without page overflow; 18 printable steps; no page errors.

@@ -2,6 +2,8 @@
 
 Free English interface guidance and local Excel lesson plans for teachers using Kundoluk. Version 0.12.1.
 
+Teachers: start with the [animated installation and lesson guide](https://bryantfriend.github.io/kundoluk/).
+
 Independent, unofficial extension. Not affiliated with or endorsed by Kundoluk or the Ministry of Education. Chrome Web Store submission is being prepared; a store link will be added after approval.
 
 ## Features
