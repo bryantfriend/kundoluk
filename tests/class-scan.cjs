@@ -1,0 +1,3 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');const scope={};vm.createContext(scope);vm.runInContext(fs.readFileSync('extension/class-scan.js','utf8'),scope);
+const cards=['Teacher\nГеография\n7A - Year','Teacher\nГеография\n7B - Year(12)','Teacher\nГеография\n7C - Year(12)','Teacher\nГеография\n7A - Year','Teacher\nАнглийский язык\n7A - Year','Monday\n21.09.2026','10:00\n11:00\n7A'];
+const result=scope.KundolukClassScan.parseCards(cards);assert.equal(result.length,4);assert.equal(result[2].className,'7C - Year(12)');console.log('PASS: screenshot class formats, duplicate cards removed, subjects kept separate, non-card text excluded.');

@@ -1,0 +1,20 @@
+const fs=require('node:fs');
+const manifest=JSON.parse(fs.readFileSync('extension/manifest.json','utf8'));
+const scripts=manifest.content_scripts[0].js.map(p=>`<script src="../extension/${p}"></script>`).join('\n');
+fs.writeFileSync('release/demo.html',`<!doctype html><html lang="en"><meta charset="utf-8"><title>Teacher companion demonstration</title>
+<style>body{margin:0;background:#eef3f9;color:#203b59;font:16px system-ui}nav{background:#123f71;color:white;padding:22px 40px}main{padding:36px;width:740px}.info-item{display:inline-block;margin:18px 24px 18px 0}.info-label{font-size:12px;color:#64758a}.info-value{font-weight:600}button{padding:10px 18px;border:1px solid #c8d4e2;border-radius:8px;background:white;color:#123f71}textarea{display:block;width:680px;height:100px;margin:14px 0;padding:12px;font:16px system-ui;border:1px solid #c8d4e2;border-radius:8px}.modal{padding:20px;background:white;border-radius:14px}h1{font-size:28px}[hidden]{display:none!important}</style>
+<nav>Teacher workspace · Demonstration</nav><main><h1>Prepare your lesson with confidence</h1><p>Synthetic example. No student data or connection to school records.</p>
+<div class="info-item"><div class="info-label">Предмет</div><div class="info-value">Biology</div></div>
+<div class="info-item"><div class="info-label">Класс</div><div class="info-value">7A</div></div>
+<div class="info-item"><div class="info-label">Күнү</div><input role="combobox" value="13.10.2026"></div>
+<div class="info-item"><div class="info-label">Сабак</div><div class="info-value">1 (09:00–09:40)</div></div>
+<p><button id="open">Тема жана Тапшырма</button></p><div id="modal" class="modal"><label>Тема</label><textarea placeholder="Тема"></textarea><label>Тапшырма</label><textarea placeholder="Тапшырма"></textarea><button id="cancel">Жокко чыгаруу</button> <button id="save">Сактоо</button></div><p>Your teacher reviews and saves the final lesson.</p></main>
+<script>
+const values={'lessonPlan:demo':{id:'lessonPlan:demo',name:'Example biology plan.xlsx',book:{version:1,sheets:[{name:'Biology',lessons:[{row:2,number:'1',sessions:2,lesson:'Cells and their structures\\nIdentify the nucleus, cytoplasm and cell membrane.',homework:'Draw and label a plant cell.'}]}]}}};
+values['classPlan:'+JSON.stringify(['Biology','7A',2026])]={book:'lessonPlan:demo',sheet:0};
+values.companionWindow={width:360,height:680,x:902,y:100};
+const listeners=[];globalThis.chrome={storage:{local:{get:async()=>({...values}),set:async v=>{Object.assign(values,v);listeners.forEach(f=>f(Object.fromEntries(Object.entries(v).map(([k,newValue])=>[k,{newValue}])),'local'));},remove:async keys=>{for(const k of [].concat(keys))delete values[k];}},onChanged:{addListener:f=>listeners.push(f)}}};
+document.getElementById('open').onclick=()=>document.getElementById('modal').hidden=false;
+document.getElementById('cancel').onclick=()=>document.getElementById('modal').hidden=true;
+document.getElementById('save').onclick=()=>alert('Demonstration only. No school records saved.');
+</script>${scripts}</html>`);

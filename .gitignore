@@ -1,0 +1,14 @@
+private/
+*.xlsx
+*.xls
+journal.html
+journal_files/
+node_modules/
+test-results/
+*.zip
+*.log
+release/demo-debug.png
+release/github-files.json
+release/README-development.md
+tests/RESULTS.md
+INSPECTION.md

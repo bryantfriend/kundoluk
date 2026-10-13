@@ -1,0 +1,45 @@
+NAME
+Kundoluk Teacher Companion
+
+SHORT DESCRIPTION
+English help for Kundoluk teachers. Import Excel lesson plans and prepare topics and homework for your review.
+
+DESCRIPTION
+Kundoluk Teacher Companion helps teachers use the Kundoluk teacher portal with English interface guidance and locally saved lesson plans. Free in this release. No payment or subscription is required.
+
+Features
+- Translate recognized Kyrgyz and Russian interface labels into English. Unknown labels stay in their original language.
+- Open English explanations of common teacher controls.
+- Import supported .xlsx lesson-plan workbooks and keep multiple workbooks in a local library.
+- Assign worksheets to classes and subjects.
+- Preview lesson topics and homework, then fill the current lesson after checking its class, subject and date.
+- Use teacher-confirmed progress and explicitly captured schedules for lesson suggestions.
+- Move and resize the companion panel.
+
+You stay in control: the extension never presses Save and does not enter grades or attendance. Review prepared text and save it yourself in Kundoluk.
+
+Workbook headers: № урока, Количество уроков, План урока, Домашнее задание. Use text-based .xlsx files under 15 MB. Formulas, merged cells and Excel error values are unsupported. Multi-session blocks retain their original text.
+
+Privacy: imported plans and preferences stay in this Chrome profile. No developer server, analytics, ads or remote translation service. The extension does not read passwords. Keep original Excel files as backups.
+
+Requires an existing authorized Kundoluk teacher account and the supported teacher portal at https://kundoluk.edu.gov.kg/mon. Some interface labels and site layouts may not yet be supported. Schedule suggestions require checking that captured dates are complete. Student access help explains recognized labels; it does not reset credentials.
+
+Independent, unofficial extension. Not affiliated with or endorsed by Kundoluk or the Ministry of Education.
+
+CATEGORY
+Education
+
+SINGLE PURPOSE
+Help Kundoluk teachers understand the teacher interface in English and prepare their lesson-plan topics and homework for manual review and saving.
+
+STORAGE JUSTIFICATION
+Stores user-imported lesson-plan workbooks, class/subject assignments, captured schedules, teacher-confirmed progress, and interface preferences locally in the user's Chrome profile.
+
+SITE ACCESS JUSTIFICATION
+The content script runs only on the Kundoluk teacher portal to recognize supported interface labels and current lesson context, display English help, and fill topic/homework fields at the teacher's request. It never saves school records automatically.
+
+REMOTE CODE
+No remote code. All JavaScript, including the MIT-licensed JSZip library, is packaged with the extension.
+
+REVIEWER INSTRUCTIONS
+An authorized Kundoluk teacher account is required for full live functionality. Do not provide real student records or credentials in review notes. The extension only prepares topic/homework fields; saving remains a manual platform action. A local synthetic journal demo is supplied in the release materials for verification without student data.

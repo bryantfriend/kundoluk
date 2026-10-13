@@ -1,0 +1,1 @@
+PASS: all manifest scripts loaded; synthetic lesson context recognized; teacher confirmation required; exact multiline topic and homework filled; no page errors. Screenshot uses synthetic data only.
